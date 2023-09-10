@@ -2,33 +2,9 @@
 import userAvatar from '@images/illustrations/congo-illustration.png'
 import TeamBySpeciality from './dashboard/TeamBySpeciality.vue'
 import WorkOrderPerSystem from './dashboard/WorkOrderPerSystem.vue'
+import { statistics } from '@services/dashboard'
+import { BaseCard } from '@components'
 
-const statistics = [
-  {
-    title: 'Open',
-    stats: '-',
-    icon: 'tabler-alert-octagon',
-    color: 'error',
-  },
-  {
-    title: 'Spare Part',
-    stats: '-',
-    icon: 'tabler-box',
-    color: 'info',
-  },
-  {
-    title: 'Under Observation',
-    stats: '-',
-    icon: 'tabler-eye-check',
-    color: 'warning',
-  },
-  {
-    title: 'Closed',
-    stats: '-',
-    icon: 'tabler-checks',
-    color: 'success',
-  },
-]
 </script>
 
 <template>
@@ -39,11 +15,11 @@ const statistics = [
         sm="12"
         md="4"
       >
-        <VCard>
+        <BaseCard height="100%">
           <div class="d-flex justify-space-between">
             <div style="padding-top: 70px;">
-              <VCardItem style="padding-bottom: 0px">
-                <VCardTitle style="font-weight: bold;">
+              <VCardItem class="pb-0">
+                <VCardTitle class="font-weight-bold">
                   Welcome Back
                 </VCardTitle>
               </VCardItem>
@@ -51,7 +27,7 @@ const statistics = [
                 Adam
               </VCardText>
             </div>
-            <div style="padding: 24px 24px 0px 0px;">
+            <div class="pt-6 pr-6">
               <VImg
                 width="128"
                 height="140"
@@ -59,7 +35,7 @@ const statistics = [
               />
             </div>
           </div>
-        </VCard>
+        </BaseCard>
       </VCol>
       
       <VCol
@@ -67,12 +43,12 @@ const statistics = [
         sm="12"
         md="8"
       >
-        <VCard title="Statistics">
+        <BaseCard title="Statistics">
           <VCardText>
             <VRow style="margin-top: 10px;">
               <VCol
-                v-for="item in statistics"
-                :key="item.title"
+                v-for="(item,index) in statistics"
+                :key="index"
                 cols="6"
                 md="3"
               >
@@ -96,7 +72,7 @@ const statistics = [
               </VCol>
             </VRow>
           </VCardText>
-        </VCard>
+        </BaseCard>
       </VCol>
     </VRow>
     <VRow class="mb-5">
@@ -111,33 +87,8 @@ const statistics = [
         <WorkOrderPerSystem />
       </VCol>
     </VRow>
-
-    <!--
-      <VCard
-      class="mb-6"
-      title="Kick start your project 🚀"
-      >
-      <VCardText>All the best for your new project.</VCardText>
-      <VCardText>
-      Please make sure to read our <a
-      href="https://demos.pixinvent.com/vuexy-vuejs-admin-template/documentation/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="text-decoration-none"
-      >
-      Template Documentation
-      </a> to understand where to go from here and how to use our template.
-      </VCardText>
-      </VCard>
-
-      <VCard title="Want to integrate JWT? 🔒">
-      <VCardText>We carefully crafted JWT flow so you can implement JWT with ease and with minimum efforts.</VCardText>
-      <VCardText>Please read our  JWT Documentation to get more out of JWT authentication.</VCardText>
-      </VCard> 
-    -->
   </div>
 </template>
-
 
 <style lang="scss" scoped>
 .user-name {
@@ -147,12 +98,4 @@ const statistics = [
   padding-bottom: 0px;
 }
 
-.rounded-pill {
-    border-radius: 50rem !important;
-}
-
-.bg-label-danger {
-    background-color: #fce5e6 !important;
-    color: #ea5455 !important;
-}
 </style>
