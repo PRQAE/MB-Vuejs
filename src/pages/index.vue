@@ -3,7 +3,6 @@ import userAvatar from '@images/illustrations/congo-illustration.png'
 import TeamBySpeciality from './dashboard/TeamBySpeciality.vue'
 import WorkOrderPerSystem from './dashboard/WorkOrderPerSystem.vue'
 import { statistics } from '@services/dashboard'
-import { BaseCard } from '@components'
 
 </script>
 
@@ -15,7 +14,7 @@ import { BaseCard } from '@components'
         sm="12"
         md="4"
       >
-        <BaseCard height="100%">
+        <VCard height="100%">
           <div class="d-flex justify-space-between">
             <div style="padding-top: 70px;">
               <VCardItem class="pb-0">
@@ -35,7 +34,7 @@ import { BaseCard } from '@components'
               />
             </div>
           </div>
-        </BaseCard>
+        </VCard>
       </VCol>
       
       <VCol
@@ -43,7 +42,7 @@ import { BaseCard } from '@components'
         sm="12"
         md="8"
       >
-        <BaseCard title="Statistics">
+        <VCard title="Statistics">
           <VCardText>
             <VRow style="margin-top: 10px;">
               <VCol
@@ -72,7 +71,7 @@ import { BaseCard } from '@components'
               </VCol>
             </VRow>
           </VCardText>
-        </BaseCard>
+        </VCard>
       </VCol>
     </VRow>
     <VRow class="mb-5">

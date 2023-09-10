@@ -1,15 +1,13 @@
 <script setup>
 import { systems } from "@services/dashboard";
 import { useDashboard } from "@composables";
-import { BaseCard } from '@components'
-
 const { navigationTab, navigationTab2 } = useDashboard();
 const titleContent = 'Based on Database'
 
 </script>
 
 <template>
-  <BaseCard>
+  <VCard>
     <VCardText class="TeamTitle">
       Work Order per System
     </VCardText>
@@ -46,7 +44,7 @@ const titleContent = 'Based on Database'
         </VListItem>
       </VList>
     </VCardText>
-  </BaseCard>
+  </VCard>
 </template>
 
 <style lang="scss" scoped>
