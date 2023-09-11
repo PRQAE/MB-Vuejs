@@ -1,13 +1,11 @@
 <script setup>
 import { signals, tabItems } from "@services/dashboard";
 import { useDashboard } from "@composables";
-import { BaseCard } from '@components'
-
 const { navigationTab, navigationTab2, titleContent } = useDashboard();
 </script>
 
 <template>
-  <BaseCard>
+  <VCard>
     <VCardText class="TeamTitle"> Team By Speciality </VCardText>
     <VCardText class="sub-title">
       {{ titleContent }}
@@ -53,7 +51,7 @@ const { navigationTab, navigationTab2, titleContent } = useDashboard();
         </VCardText>
       </VWindowItem>
     </VWindow>
-  </BaseCard>
+  </VCard>
 </template>
 
 <style lang="scss" scoped>
