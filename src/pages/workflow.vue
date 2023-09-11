@@ -1,9 +1,11 @@
 <script setup>
-import { VDataTableServer } from "vuetify/labs/VDataTable";
-import AddNewUserDrawer from "../views/apps/user/AddNewUserDrawer.vue";
-import { headers, sites, types, technicans, status } from "@services/workflow";
-import { useWorkflow } from "@composables";
-import { PaginationComponent } from "@components/shared";
+import { VDataTableServer } from "vuetify/labs/VDataTable"
+import AddNewUserDrawer from "../views/apps/user/AddNewUserDrawer.vue"
+import { headers, sites, types, technicans, status } from "@services/workflow"
+import { useWorkflow } from "@composables"
+import { PaginationComponent } from "@components/shared"
+import { teams } from "@/services/workflow"
+import { mbs } from "@/services/cars"
 
 const {
   selectedDate,
@@ -23,7 +25,7 @@ const {
   resolveUserTypeVariant,
   resolveUserSupportVariant,
   deleteUser,
-} = useWorkflow();
+} = useWorkflow()
 </script>
 
 <template>
@@ -43,11 +45,22 @@ const {
             </VRow>
             <VRow>
               <!-- 👉 Select Role -->
-              <VCol cols="12" md="2" sm="2">
-                <AppDateTimePicker v-model="selectedDate" label="Date:" />
+              <VCol
+                cols="12"
+                md="2"
+                sm="2"
+              >
+                <AppDateTimePicker
+                  v-model="selectedDate"
+                  label="Date:"
+                />
               </VCol>
               <!-- 👉 Select Plan -->
-              <VCol cols="12" md="2" sm="2">
+              <VCol
+                cols="12"
+                md="2"
+                sm="2"
+              >
                 <AppTextField
                   v-model="selectedWorkOrder"
                   label="Work Order:"
@@ -57,45 +70,70 @@ const {
                 />
               </VCol>
               <!-- 👉 Select Status -->
-              <VCol cols="12" sm="1">
+              <VCol
+                cols="12"
+                sm="1"
+              >
                 <AppSelect
                   v-model="selectedSite"
                   label="Site:"
                   :items="sites"
                 />
               </VCol>
-              <VCol cols="12" sm="1">
+              <VCol
+                cols="12"
+                sm="1"
+              >
                 <AppSelect
                   v-model="selectedType"
                   label="Types:"
                   :items="types"
                 />
               </VCol>
-              <VCol cols="12" sm="2">
+              <VCol
+                cols="12"
+                sm="2"
+              >
                 <AppSelect
                   v-model="selectedTechnican"
                   label="Technican:"
                   :items="technicans"
                 />
               </VCol>
-              <VCol cols="12" sm="1">
+              <VCol
+                cols="12"
+                sm="1"
+              >
                 <AppSelect
                   v-model="selectedStatus"
                   label="Status:"
                   :items="status"
                 />
               </VCol>
-              <VCol cols="12" sm="1">
-                <AppSelect v-model="selectedMb" label="MB:" :items="types" />
+              <VCol
+                cols="12"
+                sm="1"
+              >
+                <AppSelect
+                  v-model="selectedMb"
+                  label="MB:"
+                  :items="mbs"
+                />
               </VCol>
-              <VCol cols="12" sm="1">
+              <VCol
+                cols="12"
+                sm="1"
+              >
                 <AppSelect
                   v-model="selectedTeam"
                   label="Team:"
-                  :items="types"
+                  :items="teams"
                 />
               </VCol>
-              <VCol cols="12" sm="1">
+              <VCol
+                cols="12"
+                sm="1"
+              >
                 <AppSelect
                   :model-value="options.itemsPerPage"
                   label="Show"
@@ -185,9 +223,7 @@ const {
             <!-- pagination -->
             <template #bottom>
               <VDivider />
-              <div
-                class="d-flex align-center justify-sm-space-between justify-center flex-wrap gap-3 pa-5 pt-3"
-              >
+              <div class="d-flex align-center justify-sm-space-between justify-center flex-wrap gap-3 pa-5 pt-3">
                 <p class="text-sm text-disabled mb-0">
                   {{ paginationMeta(options, totalUsers) }}
                 </p>
