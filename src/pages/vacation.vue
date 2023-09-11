@@ -1,39 +1,23 @@
 <script setup>
-import { useResponsiveLeftSidebar } from '@core/composable/useResponsiveSidebar'
 import FullCalendar from '@fullcalendar/vue3'
-import {
-  blankEvent,
-  useCalendar,
-} from '../views/apps/calendar/useCalendar'
+import { blankEvent, useCalendar } from '../views/apps/calendar/useCalendar'
+import { useVacation } from '@/composables'
+import { useResponsiveLeftSidebar } from '@core/composable/useResponsiveSidebar'
 import { useCalendarStore } from '../views/apps/calendar/useCalendarStore'
 
 // Components
 import CalendarEventHandler from '../views/apps/calendar/CalendarEventHandler.vue'
-
-const store = useCalendarStore()
-
-// 👉 Event
-const event = ref(structuredClone(blankEvent))
-const isEventHandlerSidebarActive = ref(false)
+const store = useCalendarStore();
+const { checkAll, event, isEventHandlerSidebarActive }  = useVacation()
+const { isLeftSidebarOpen } = useResponsiveLeftSidebar()
+const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpToDate } = useCalendar(event, isEventHandlerSidebarActive, isLeftSidebarOpen)
 
 watch(isEventHandlerSidebarActive, val => {
   if (!val)
     event.value = structuredClone(blankEvent)
 })
 
-const { isLeftSidebarOpen } = useResponsiveLeftSidebar()
-const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpToDate } = useCalendar(event, isEventHandlerSidebarActive, isLeftSidebarOpen)
 
-// 👉 Check all
-const checkAll = computed({
-  get: () => store.selectedCalendars.length === store.availableCalendars.length,
-  set: val => {
-    if (val)
-      store.selectedCalendars = store.availableCalendars.map(i => i.label)
-    else if (store.selectedCalendars.length === store.availableCalendars.length)
-      store.selectedCalendars = []
-  },
-})
 </script>
 
 <template>
