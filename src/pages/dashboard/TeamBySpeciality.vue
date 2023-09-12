@@ -1,24 +1,38 @@
 <script setup>
-import { signals, tabItems } from "@services/dashboard";
-import { useDashboard } from "@composables";
-const { navigationTab, navigationTab2, titleContent } = useDashboard();
+import { signals, tabItems } from "@services/dashboard"
+import { useDashboard } from "@composables"
+
+const { navigationTab, navigationTab2, titleContent } = useDashboard()
 </script>
 
 <template>
   <VCard>
-    <VCardText class="TeamTitle"> Team By Speciality </VCardText>
+    <VCardText class="TeamTitle">
+      Team By Speciality
+    </VCardText>
     <VCardText class="sub-title">
       {{ titleContent }}
     </VCardText>
     <VTabs v-model="navigationTab">
-      <VTab v-for="(item,index) in tabItems" :key="index" :value="item">
+      <VTab
+        v-for="(item,index) in tabItems"
+        :key="index"
+        :value="item"
+      >
         {{ item }}
       </VTab>
     </VTabs>
 
     <!-- tabs content -->
-    <VWindow v-model="navigationTab" style="padding: 0px 30px">
-      <VWindowItem v-for="item in tabItems" :key="item" :value="item">
+    <VWindow
+      v-model="navigationTab"
+      style="padding: 0px 30px"
+    >
+      <VWindowItem
+        v-for="item in tabItems"
+        :key="item"
+        :value="item"
+      >
         <VCardText style="padding: 0px 30px 20px 30px">
           <VList class="card-list">
             <VListItem
@@ -60,5 +74,4 @@ const { navigationTab, navigationTab2, titleContent } = useDashboard();
   font-size: 0.8125rem;
   padding-bottom: 10px;
 }
-
 </style>

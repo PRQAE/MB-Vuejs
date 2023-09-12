@@ -1,23 +1,22 @@
 <script setup>
 import { VDataTableServer } from 'vuetify/labs/VDataTable'
 import AddNewTeam from '../views/apps/user/AddNewTeam.vue'
-import { headers, mbs, teams, roles, pts, pos, userListMeta } from "@services/teams";
-import { useTeams } from "@composables";
-import { PaginationComponent } from "@components/shared";
+import { headers, mbs, teams, roles, pts, pos, userListMeta } from "@services/teams"
+import { useTeams } from "@composables"
+import { PaginationComponent } from "@components/shared"
 
 const {
-    name,
-    selectedMb,
-    selectedTeam,
-    totalUsers,
-    users,
-    options,
-    isAddNewUserDrawerVisible,
-    paginationMeta,
-    resolveTeamVariant,
-    deleteUser,
+  name,
+  selectedMb,
+  selectedTeam,
+  totalUsers,
+  users,
+  options,
+  isAddNewUserDrawerVisible,
+  paginationMeta,
+  resolveTeamVariant,
+  deleteUser,
 } = useTeams()
-
 </script>
 
 <template>
@@ -199,7 +198,11 @@ const {
                 <p class="text-sm text-disabled mb-0">
                   {{ paginationMeta(options, totalUsers) }}
                 </p>
-                <PaginationComponent v-model="options.page" :items-per-page="options.itemsPerPage" :total-records="totalUsers" />
+                <PaginationComponent
+                  v-model="options.page"
+                  :items-per-page="options.itemsPerPage"
+                  :total-records="totalUsers"
+                />
               </div>
             </template>
           </VDataTableServer>

@@ -387,6 +387,14 @@ const status = [
   },
 ]
 
+const items = [
+  'Adam',
+  'Joe',
+]
+
+const selected = ref([
+])
+
 const billingAddress = ref(structuredClone(toRaw(props.billingAddress)))
 
 const resetForm = () => {
@@ -443,7 +451,30 @@ const onFormSubmit = () => {
                 label="Date:"
               />
             </VCol>
-
+            <!-- 👉 Company Name -->
+            <VCol
+              cols="12"
+              md="6"
+            >
+              <AppCombobox
+                v-model="selected"
+                :items="items"
+                label="Team"
+                chips
+                multiple
+              />
+            </VCol>
+            <!-- 👉 State -->
+            <VCol
+              cols="12"
+              md="6"
+            >
+              <AppTextField
+                v-model="billingAddress.wo"
+                placeholder="100118"
+                label="Work Order"
+              />
+            </VCol>
             <!-- 👉 Email -->
             <VCol
               cols="12"
@@ -454,7 +485,17 @@ const onFormSubmit = () => {
                 :items="sites"
               />
             </VCol>
-
+            <!-- 👉 State -->
+            <VCol
+              cols="12"
+              md="6"
+            >
+              <AppTextField
+                v-model="billingAddress.description"
+                placeholder="P01 Defect"
+                label="Description"
+              />
+            </VCol>
             <!-- 👉 Tax ID -->
             <VCol
               cols="12"
@@ -515,17 +556,7 @@ const onFormSubmit = () => {
               />
             </VCol>
 
-            <!-- 👉 State -->
-            <VCol
-              cols="12"
-              md="6"
-            >
-              <AppTextField
-                v-model="billingAddress.description"
-                placeholder="P01 Defect"
-                label="Description"
-              />
-            </VCol>
+           
 
             <!-- 👉 Zip Code -->
             <VCol

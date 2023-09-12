@@ -3,7 +3,6 @@ import userAvatar from '@images/illustrations/congo-illustration.png'
 import TeamBySpeciality from './dashboard/TeamBySpeciality.vue'
 import WorkOrderPerSystem from './dashboard/WorkOrderPerSystem.vue'
 import { statistics } from '@services/dashboard'
-
 </script>
 
 <template>
@@ -26,7 +25,7 @@ import { statistics } from '@services/dashboard'
                 Adam
               </VCardText>
             </div>
-            <div class="pt-6 pr-6">
+            <div class="pt-6">
               <VImg
                 width="128"
                 height="140"
@@ -96,5 +95,4 @@ import { statistics } from '@services/dashboard'
   color: #00718a;
   padding-bottom: 0px;
 }
-
 </style>

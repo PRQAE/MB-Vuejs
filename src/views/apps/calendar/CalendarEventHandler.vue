@@ -66,20 +66,20 @@ const handleSubmit = () => {
 
 const teams = [
   {
-    title: 'Team A',
-    value: 'team_a',
+    title: "Team A",
+    value: "Team A",
   },
   {
-    title: 'Team B',
-    value: 'team_b',
+    title: "Team B",
+    value: "Team B",
   },
   {
-    title: 'Team C',
-    value: 'team_c',
+    title: "Team C",
+    value: "Team C",
   },
   {
-    title: 'Team D',
-    value: 'team_d',
+    title: "Team D",
+    value: "Team D",
   },
 ]
 

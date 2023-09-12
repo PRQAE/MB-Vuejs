@@ -53,6 +53,7 @@ const {
                 <AppDateTimePicker
                   v-model="selectedDate"
                   label="Date:"
+                  :config="{ mode: 'range' }"
                 />
               </VCol>
               <!-- 👉 Select Plan -->
