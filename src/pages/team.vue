@@ -1,272 +1,22 @@
 <script setup>
 import { VDataTableServer } from 'vuetify/labs/VDataTable'
 import AddNewTeam from '../views/apps/user/AddNewTeam.vue'
-import { useUserListStore } from '../views/apps/user/useUserListStore'
+import { headers, mbs, teams, roles, pts, pos, userListMeta } from "@services/teams"
+import { useTeams } from "@composables"
+import { PaginationComponent } from "@components/shared"
 
-const userListStore = useUserListStore()
-const searchQuery = ref('')
-const name = ref('')
-const selectedMb = ref('All')
-const selectedTeam = ref('All')
-
-const totalPage = ref(1)
-const totalUsers = ref(0)
-const users = ref([])
-
-const paginationMeta = () => {
-  return (options, total) => {
-    const start = (options.page - 1) * options.itemsPerPage + 1
-    const end = Math.min(options.page * options.itemsPerPage, total)
-    
-    return `Showing ${start} to ${end} of ${total} entries`
-  }
-}
-
-const mbs=[
-  {
-    title: 'All',
-    value: 'all',
-  },
-  {
-    title: 'MB5',
-    value: 'mb5',
-  },
-  {
-    title: 'MB6',
-    value: 'mb6',
-  },
-  {
-    title: 'MB7',
-    value: 'mb7',
-  },
-]
-
-const teams=[
-  {
-    title: 'All',
-    value: 'all',
-  },
-  {
-    title: 'Team A',
-    value: 'team_a',
-  },
-  {
-    title: 'Team B',
-    value: 'team_b',
-  },
-  {
-    title: 'Team C',
-    value: 'team_c',
-  },
-  {
-    title: 'Team D',
-    value: 'team_d',
-  },
-]
-
-const roles = [
-  {
-    title: 'All',
-    value: 'all',
-  },
-  {
-    title: 'Team Member',
-    value: 'team_member',
-  },
-  {
-    title: 'Team Leader',
-    value: 'team_leader',
-  },
-  {
-    title: 'Team Leader Assistant',
-    value: 'team_leader_assistant',
-  },
-  {
-    title: 'Team Leader',
-    value: 'team_leader',
-  },
-]
-
-const pts = [
-  {
-    title: 'All',
-    value: 'all',
-  },
-  {
-    title: 'Active',
-    value: 'active',
-  },
-  {
-    title: 'Expired',
-    value: 'expired',
-  },
-]
-
-const pos = [
-  {
-    title: 'All',
-    value: 'all',
-  },
-  {
-    title: 'Active',
-    value: 'active',
-  },
-  {
-    title: 'Not PO',
-    value: 'not_po',
-  },
-  {
-    title: 'Expired',
-    value: 'expired',
-  },
-]
-
-
-const options = ref({
-  page: 1,
-  itemsPerPage: 10,
-  sortBy: [],
-  groupBy: [],
-  search: undefined,
-})
-
-// Headers
-const headers = [
-  {
-    title: 'SAR ID',
-    key: 'sar_id',
-  },
-  {
-    title: 'NAME',
-    key: 'name',
-  },
-  {
-    title: 'EMAIL',
-    key: 'email',
-  },
-  {
-    title: 'PHONE NO.',
-    key: 'phone_no',
-  },
-  {
-    title: 'ID',
-    key: 'id',
-  },
-  {
-    title: 'PTS',
-    key: 'pts',
-  },
-  {
-    title: 'PO',
-    key: 'po',
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    sortable: false,
-  },
-]
-
-// 👉 Fetching users
-const fetchUsers = () => {
-  // userListStore.fetchUsers({
-  //   q: searchQuery.value,
-  //   options: options.value,
-  // }).then(response => {
-  //   users.value = response.users
-  //   totalPage.value = 1
-  //   totalUsers.value = 4
-  //   options.value.page = 1
-  // }).catch(error => {
-  //   console.error(error)
-  // })
-  users.value = [
-    {
-      sar_id: '1111',
-      name: 'Adam',
-      email: 'a@a.com',
-      phone_no: '+1112121231',
-      id: '1111111',
-      pts: 'Active',
-      po: 'Active',
-    },
-    {
-      sar_id: '2222',
-      name: 'Joe',
-      email: 'b@b.com',
-      phone_no: '+192398182',
-      id: '22222222',
-      pts: 'Expired',
-      po: 'Expired',
-    },
-    {
-      sar_id: '3333',
-      name: 'Grem',
-      email: 'rok@gmail.com',
-      phone_no: '+12397428',
-      id: '333333',
-      pts: 'Expired',
-      po: 'Active',
-    },
-  ]
-}
-
-watchEffect(fetchUsers)
-
-const resolveTeamVariant = stat => {
-  const statLowerCase = stat.toLowerCase()
-  if (statLowerCase === 'active')
-    return 'success'
-  if (statLowerCase === 'expired')
-    return 'error'
-}
-
-const userListMeta = [
-  {
-    icon: 'tabler-user',
-    color: 'primary',
-    title: 'Employees',
-    stats: '2',
-    subtitle: 'Total Employees',
-  },
-  {
-    icon: 'tabler-user-plus',
-    color: 'success',
-    title: 'Protection Officer',
-    stats: '1',
-    subtitle: 'Total PO',
-  },
-  {
-    icon: 'tabler-user-check',
-    color: 'error',
-    title: 'PTS',
-    stats: '1',
-    subtitle: 'Expired PTS',
-  },
-  {
-    icon: 'tabler-user-exclamation',
-    color: 'warning',
-    title: 'No Idea',
-    stats: '0',
-    subtitle: 'Still no idea',
-  },
-]
-
-const isAddNewUserDrawerVisible = ref(false)
-
-const addNewUser = userData => {
-  userListStore.addUser(userData)
-
-  // refetch User
-  fetchUsers()
-}
-
-const deleteUser = id => {
-  userListStore.deleteUser(id)
-
-  // refetch User
-  fetchUsers()
-}
+const {
+  name,
+  selectedMb,
+  selectedTeam,
+  totalUsers,
+  users,
+  options,
+  isAddNewUserDrawerVisible,
+  paginationMeta,
+  resolveTeamVariant,
+  deleteUser,
+} = useTeams()
 </script>
 
 <template>
@@ -448,34 +198,11 @@ const deleteUser = id => {
                 <p class="text-sm text-disabled mb-0">
                   {{ paginationMeta(options, totalUsers) }}
                 </p>
-
-                <VPagination
+                <PaginationComponent
                   v-model="options.page"
-                  :length="Math.ceil(totalUsers / options.itemsPerPage)"
-                  :total-visible="$vuetify.display.xs ? 1 : Math.ceil(totalUsers / options.itemsPerPage)"
-                >
-                  <template #prev="slotProps">
-                    <VBtn
-                      variant="tonal"
-                      color="default"
-                      v-bind="slotProps"
-                      :icon="false"
-                    >
-                      Previous
-                    </VBtn>
-                  </template>
-
-                  <template #next="slotProps">
-                    <VBtn
-                      variant="tonal"
-                      color="default"
-                      v-bind="slotProps"
-                      :icon="false"
-                    >
-                      Next
-                    </VBtn>
-                  </template>
-                </VPagination>
+                  :items-per-page="options.itemsPerPage"
+                  :total-records="totalUsers"
+                />
               </div>
             </template>
           </VDataTableServer>
@@ -491,10 +218,6 @@ const deleteUser = id => {
 </template>
 
 <style lang="scss">
-.app-user-search-filter {
-  inline-size: 31.6rem;
-}
-
 .text-capitalize {
   text-transform: capitalize;
 }

@@ -23,7 +23,7 @@ export const statistics = [
     icon: "tabler-checks",
     color: "success",
   },
-];
+]
 
 export const signals = [
   {
@@ -54,37 +54,37 @@ export const signals = [
     stats: "40%",
     statsColor: "error",
   },
-];
+]
 
-export const tabItems = ["Signaling", "Telecom", "Electro", "GSM_R"];
+export const tabItems = ["Signaling", "Telecom", "Electro", "GSM_R"]
 
 export const systems = [
-    {
-      avatarColor: 'primary',
-      avatarIcon: 'tabler-traffic-lights',
-      title: '-',
-      stats: '64%',
-      statsColor: 'primary',
-    },
-    {
-      avatarColor: 'success',
-      avatarIcon: 'tabler-battery-automotive',
-      title: '-',
-      stats: '21%',
-      statsColor: 'success',
-    },
-    {
-      avatarColor: 'warning',
-      avatarIcon: 'tabler-network',
-      title: '-',
-      stats: '10%',
-      statsColor: 'warning',
-    },
-    {
-      avatarColor: 'error',
-      avatarIcon: 'tabler-building-broadcast-tower',
-      title: '-',
-      stats: '5%',
-      statsColor: 'error',
-    },
-  ]
+  {
+    avatarColor: 'primary',
+    avatarIcon: 'tabler-traffic-lights',
+    title: '-',
+    stats: '64%',
+    statsColor: 'primary',
+  },
+  {
+    avatarColor: 'success',
+    avatarIcon: 'tabler-battery-automotive',
+    title: '-',
+    stats: '21%',
+    statsColor: 'success',
+  },
+  {
+    avatarColor: 'warning',
+    avatarIcon: 'tabler-network',
+    title: '-',
+    stats: '10%',
+    statsColor: 'warning',
+  },
+  {
+    avatarColor: 'error',
+    avatarIcon: 'tabler-building-broadcast-tower',
+    title: '-',
+    stats: '5%',
+    statsColor: 'error',
+  },
+]

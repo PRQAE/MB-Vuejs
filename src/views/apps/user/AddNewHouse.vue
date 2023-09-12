@@ -88,29 +88,6 @@ const onFormSubmit = () => {
   emit('update:isDialogVisible', false)
   emit('submit', houseInfo.value)
 }
-
-const selectedAddress = ref('Home')
-
-const addressTypes = [
-  {
-    icon: {
-      icon: 'custom-home',
-      size: '40',
-    },
-    title: 'Home',
-    desc: 'Delivery Time (7am - 9pm)',
-    value: 'Home',
-  },
-  {
-    icon: {
-      icon: 'custom-office',
-      size: '40',
-    },
-    title: 'Office',
-    desc: 'Delivery Time (10am - 6pm)',
-    value: 'Office',
-  },
-]
 </script>
 
 <template>

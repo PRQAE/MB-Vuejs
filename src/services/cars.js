@@ -32,7 +32,7 @@ export const headers = [
     key: "action",
     sortable: false,
   },
-];
+]
 
 // 👉 search filters
 
@@ -53,7 +53,7 @@ export const manufactures = [
     title: "Nissan",
     value: "nissan",
   },
-];
+]
 
 export const status = [
   {
@@ -80,7 +80,7 @@ export const status = [
     title: "Outdated",
     value: "outdated",
   },
-];
+]
 
 export const mbs = [
   {
@@ -99,7 +99,7 @@ export const mbs = [
     title: "MB9",
     value: "mb9",
   },
-];
+]
 
 export const userListMeta = [
   {
@@ -130,4 +130,4 @@ export const userListMeta = [
     stats: "0",
     subtitle: "Need Maintenance",
   },
-];
+]

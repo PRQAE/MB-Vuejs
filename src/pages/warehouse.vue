@@ -1,9 +1,9 @@
 <script setup>
-import { VDataTableServer } from "vuetify/labs/VDataTable";
-import AddNewHouse from "../views/apps/user/AddNewHouse.vue";
-import { headers, status } from "@services/warehouse";
-import { useWarehouse } from "@composables";
-import { PaginationComponent } from "@components/shared";
+import { VDataTableServer } from "vuetify/labs/VDataTable"
+import AddNewHouse from "../views/apps/user/AddNewHouse.vue"
+import { headers, status } from "@services/warehouse"
+import { useWarehouse } from "@composables"
+import { PaginationComponent } from "@components/shared"
 
 
 const {
@@ -20,7 +20,7 @@ const {
   paginationMeta,
   resolveUserStatusVariant,
   deleteUser,
-} = useWarehouse();
+} = useWarehouse()
 </script>
 
 <template>
@@ -40,31 +40,67 @@ const {
             </VRow>
             <VRow class="overflow-x-auto">
               <!-- 👉 Select Role -->
-              <VCol cols="12" sm="2">
-                <AppDateTimePicker v-model="selectedDate" label="Date:" />
+              <VCol
+                cols="12"
+                sm="2"
+              >
+                <AppDateTimePicker
+                  v-model="selectedDate"
+                  label="Date:"
+                />
               </VCol>
               <!-- 👉 Select Plan -->
-              <VCol cols="12" sm="2">
-                <AppTextField v-model="name" label="Name:" />
+              <VCol
+                cols="12"
+                sm="2"
+              >
+                <AppTextField
+                  v-model="name"
+                  label="Name:"
+                />
               </VCol>
               <!-- 👉 Select Status -->
-              <VCol cols="12" sm="2">
-                <AppTextField v-model="serial_no" label="Serial Number:" />
+              <VCol
+                cols="12"
+                sm="2"
+              >
+                <AppTextField
+                  v-model="serial_no"
+                  label="Serial Number:"
+                />
               </VCol>
-              <VCol cols="12" sm="2">
-                <AppTextField v-model="part_no" label="Part Number:" />
+              <VCol
+                cols="12"
+                sm="2"
+              >
+                <AppTextField
+                  v-model="part_no"
+                  label="Part Number:"
+                />
               </VCol>
-              <VCol cols="12" sm="1">
-                <AppTextField v-model="from" label="From:" />
+              <VCol
+                cols="12"
+                sm="1"
+              >
+                <AppTextField
+                  v-model="from"
+                  label="From:"
+                />
               </VCol>
-              <VCol cols="12" sm="2">
+              <VCol
+                cols="12"
+                sm="2"
+              >
                 <AppSelect
                   v-model="selectedStatus"
                   label="Status:"
                   :items="status"
                 />
               </VCol>
-              <VCol cols="12" sm="1">
+              <VCol
+                cols="12"
+                sm="1"
+              >
                 <AppSelect
                   :model-value="options.itemsPerPage"
                   label="Show"
@@ -125,9 +161,7 @@ const {
             <!-- pagination -->
             <template #bottom>
               <VDivider />
-              <div
-                class="d-flex align-center justify-sm-space-between justify-center flex-wrap gap-3 pa-5 pt-3"
-              >
+              <div class="d-flex align-center justify-sm-space-between justify-center flex-wrap gap-3 pa-5 pt-3">
                 <p class="text-sm text-disabled mb-0">
                   {{ paginationMeta(options, totalUsers) }}
                 </p>

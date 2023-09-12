@@ -9,7 +9,7 @@ export const blankEvent = {
   title: '',
   start: '',
   end: '',
-  allDay: false,
+  allDay: true,
   url: '',
   extendedProps: {
     /*
@@ -172,7 +172,7 @@ export const useCalendar = (event, isEventHandlerSidebarActive, isLeftSidebarOpe
     initialView: 'dayGridMonth',
     headerToolbar: {
       start: 'drawerToggler,prev,next title',
-      end: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+      end: 'dayGridMonth,listMonth',
     },
     events: fetchEvents,
 
@@ -201,7 +201,7 @@ export const useCalendar = (event, isEventHandlerSidebarActive, isLeftSidebarOpe
         Max number of events within a given day
         Docs: https://fullcalendar.io/docs/dayMaxEvents
       */
-    dayMaxEvents: 2,
+    dayMaxEvents: 4,
 
     /*
         Determines if day names and week names are clickable
