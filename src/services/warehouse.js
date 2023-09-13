@@ -15,7 +15,7 @@ export const status = [
     title: "Returned",
     value: "returned",
   },
-];
+]
 
 // Headers
 export const headers = [
@@ -56,4 +56,4 @@ export const headers = [
     key: "action",
     sortable: false,
   },
-];
+]

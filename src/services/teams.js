@@ -1,21 +1,21 @@
 export const mbs = [
   {
     title: "All",
-    value: "all",
+    value: "",
   },
   {
     title: "MB5",
-    value: "mb5",
+    value: "MB5",
   },
   {
     title: "MB6",
-    value: "mb6",
+    value: "MB6",
   },
   {
-    title: "MB7",
-    value: "mb7",
+    title: "MB9",
+    value: "MB9",
   },
-];
+]
 
 export const teams = [
   {
@@ -24,21 +24,21 @@ export const teams = [
   },
   {
     title: "Team A",
-    value: "team_a",
+    value: "Team A",
   },
   {
     title: "Team B",
-    value: "team_b",
+    value: "Team B",
   },
   {
     title: "Team C",
-    value: "team_c",
+    value: "Team C",
   },
   {
     title: "Team D",
-    value: "team_d",
+    value: "Team D",
   },
-];
+]
 
 export const roles = [
   {
@@ -47,21 +47,21 @@ export const roles = [
   },
   {
     title: "Team Member",
-    value: "team_member",
+    value: "Team Member",
   },
   {
-    title: "Team Leader",
-    value: "team_leader",
+    title: "Shift Leader",
+    value: "Shift Leader",
   },
   {
     title: "Team Leader Assistant",
-    value: "team_leader_assistant",
+    value: "Team Leader Assistant",
   },
   {
     title: "Team Leader",
-    value: "team_leader",
+    value: "Team Leader",
   },
-];
+]
 
 export const pts = [
   {
@@ -76,7 +76,7 @@ export const pts = [
     title: "Expired",
     value: "expired",
   },
-];
+]
 
 export const pos = [
   {
@@ -89,13 +89,13 @@ export const pos = [
   },
   {
     title: "Not PO",
-    value: "not_po",
+    value: "Not PO",
   },
   {
     title: "Expired",
-    value: "expired",
+    value: "Expired",
   },
-];
+]
 
 // Headers
 export const headers = [
@@ -132,7 +132,7 @@ export const headers = [
     key: "action",
     sortable: false,
   },
-];
+]
 
 export const userListMeta = [
   {
@@ -163,4 +163,4 @@ export const userListMeta = [
     stats: "0",
     subtitle: "Still no idea",
   },
-];
+]

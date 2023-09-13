@@ -1,9 +1,9 @@
 <script setup>
-import { systems } from "@services/dashboard";
-import { useDashboard } from "@composables";
-const { navigationTab, navigationTab2 } = useDashboard();
-const titleContent = 'Based on Database'
+import { systems } from "@services/dashboard"
+import { useDashboard } from "@composables"
 
+const { navigationTab, navigationTab2 } = useDashboard()
+const titleContent = 'Based on Database'
 </script>
 
 <template>
@@ -55,5 +55,4 @@ const titleContent = 'Based on Database'
     border-bottom: 1px dashed lightgrey;
     padding-bottom: 48px;
 }
-
 </style>

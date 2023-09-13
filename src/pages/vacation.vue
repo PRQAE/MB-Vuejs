@@ -7,7 +7,8 @@ import { useCalendarStore } from '../views/apps/calendar/useCalendarStore'
 
 // Components
 import CalendarEventHandler from '../views/apps/calendar/CalendarEventHandler.vue'
-const store = useCalendarStore();
+
+const store = useCalendarStore()
 const { checkAll, event, isEventHandlerSidebarActive }  = useVacation()
 const { isLeftSidebarOpen } = useResponsiveLeftSidebar()
 const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpToDate } = useCalendar(event, isEventHandlerSidebarActive, isLeftSidebarOpen)
@@ -16,8 +17,6 @@ watch(isEventHandlerSidebarActive, val => {
   if (!val)
     event.value = structuredClone(blankEvent)
 })
-
-
 </script>
 
 <template>

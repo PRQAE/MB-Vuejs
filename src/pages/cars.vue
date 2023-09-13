@@ -1,9 +1,9 @@
 <script setup>
-import { VDataTableServer } from "vuetify/labs/VDataTable";
-import AddNewCar from "../views/apps/user/AddNewCar.vue";
-import { useCars } from "@composables";
-import { headers, status, manufactures, mbs, userListMeta,  } from "@services/cars";
-import { PaginationComponent } from "@components/shared";
+import { VDataTableServer } from "vuetify/labs/VDataTable"
+import AddNewCar from "../views/apps/user/AddNewCar.vue"
+import { useCars } from "@composables"
+import { headers, status, manufactures, mbs, userListMeta  } from "@services/cars"
+import { PaginationComponent } from "@components/shared"
 
 const {
   selectedManufacturer,
@@ -17,8 +17,7 @@ const {
   paginationMeta,
   resolveUserStatusVariant,
   deleteUser,
-} = useCars();
-
+} = useCars()
 </script>
 
 <template>
@@ -39,12 +38,9 @@ const {
                 <h6 class="text-h4">
                   {{ meta.stats }}
                 </h6>
-                <span
-                  :class="meta.percentage > 0 ? 'text-success' : 'text-error'"
-                >
+                <span :class="meta.percentage > 0 ? 'text-success' : 'text-error'">
                   {{ meta.percentage > 0 ? "+" : "" }}
-                  {{ meta.percentage }}</span
-                >
+                  {{ meta.percentage }}</span>
               </div>
               <span>{{ meta.subtitle }}</span>
             </div>
@@ -71,17 +67,30 @@ const {
               </VBtn>
             </VRow>
             <VRow>
-              <VCol cols="12" sm="3">
-                <AppSelect v-model="selectedMb" label="MB:" :items="mbs" />
+              <VCol
+                cols="12"
+                sm="3"
+              >
+                <AppSelect
+                  v-model="selectedMb"
+                  label="MB:"
+                  :items="mbs"
+                />
               </VCol>
-              <VCol cols="12" sm="3">
+              <VCol
+                cols="12"
+                sm="3"
+              >
                 <AppSelect
                   v-model="selectedManufacturer"
                   label="Manufacturer:"
                   :items="manufactures"
                 />
               </VCol>
-              <VCol cols="12" sm="3">
+              <VCol
+                cols="12"
+                sm="3"
+              >
                 <AppTextField
                   id="workorder"
                   v-model="selectedWorkOrder"
@@ -90,7 +99,10 @@ const {
                   placeholder="0001"
                 />
               </VCol>
-              <VCol cols="12" sm="3">
+              <VCol
+                cols="12"
+                sm="3"
+              >
                 <AppSelect
                   v-model="selectedStatus"
                   label="Status:"
@@ -141,9 +153,7 @@ const {
             <!-- pagination -->
             <template #bottom>
               <VDivider />
-              <div
-                class="d-flex align-center justify-sm-space-between justify-center flex-wrap gap-3 pa-5 pt-3"
-              >
+              <div class="d-flex align-center justify-sm-space-between justify-center flex-wrap gap-3 pa-5 pt-3">
                 <p class="text-sm text-disabled mb-0">
                   {{ paginationMeta(options, totalUsers) }}
                 </p>
